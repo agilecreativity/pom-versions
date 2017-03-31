@@ -1,6 +1,6 @@
 ** pom-versions
 
-A Clojure library designed to parse and extract list of version from `maven-metadata.xml`
+A Clojure library designed to parse and extract list of version from =maven-metadata.xml=
 file.
 
 *** Usage
