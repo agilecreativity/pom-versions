@@ -1,5 +1,11 @@
 ** pom-versions
 
+#+ATTR_HTML: title="Clojars"
+[[https://clojars.org/pom-versions][file:https://img.shields.io/clojars/v/pom-versions.svg]]
+
+#+ATTR_HTML: title="Jarkeeper"
+[[https://jarkeeper.com/agilecreativity/pom-versions][file:https://jarkeeper.com/agilecreativity/pom-versions/status.svg]]
+
 A Clojure library designed to parse and extract list of version from =maven-metadata.xml=
 file.
 
