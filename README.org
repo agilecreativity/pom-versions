@@ -1,0 +1,58 @@
+** pom-versions
+
+A Clojure library designed to parse and extract list of version from `maven-metadata.xml`
+file.
+
+*** Usage
+
+**** Leiningen/Boot
+
+#+BEGIN_SRC clojure
+[pom-versions "0.1.0"]
+#+END_SRC
+
+**** Gradle
+
+#+BEGIN_SRC groovy
+compile "pom-versions:pom-versions:0.1.0"
+#+END_SRC
+
+**** Maven
+
+#+BEGIN_SRC xml
+<dependency>
+  <groupId>pom-versions</groupId>
+  <artifactId>pom-versions</artifactId>
+  <version>0.1.0</version>
+</dependency>
+#+END_SRC
+
+*** Sample Usage
+
+#+BEGIN_SRC clojure
+  (require [pom-versions.core :refer [get-versions] :as pmv])
+  ;; ...
+  (let [maven-local-file "/path/to/maven-metadata.xml" ;; If using local file
+        maven-remote-url "http://repo1.maven.org/maven2/org/seleniumhq/selenium/selenium-java/maven-metadata.xml" ;; Or from remote url
+        local-file (slurp maven-local-file)
+        remote-file (slurp maven-remote-url)]
+    ;; Get versions from local file
+    (pmv/get-versions local-file)
+
+    ;; Get versions from remote url
+    (pmv/get-versions remote-file))
+#+END_SRC
+
+You should get the vector result like
+
+#+BEGIN_SRC clojure
+;; Result from `http://repo1.maven.org/maven2/org/seleniumhq/selenium/selenium-java/maven-metadata.xml'
+["2.0.0", "2.0rc3", ..., "3.3.0"]
+#+END_SRC
+
+** License
+
+Copyright © 2017 agilecreativity
+
+Distributed under the Eclipse Public License either version 1.0 or (at
+your option) any later version.
