@@ -1,12 +1,12 @@
 (def project 'pom-versions)
-(def version "0.1.0")
+(def version "0.1.1")
 
 (set-env! :resource-paths #{"resources" "src"}
           :source-paths   #{"test"}
-          :dependencies   '[[org.clojure/clojure "RELEASE"]
+          :dependencies   '[[org.clojure/clojure "1.8.0"]
                             [org.clojure/data.xml "0.0.8"]
-                            [adzerk/boot-test "RELEASE" :scope "test"]
-                            [adzerk/bootlaces "RELEASE" :scope "test"]])
+                            [adzerk/boot-test "1.2.0" :scope "test"]
+                            [adzerk/bootlaces "0.1.13" :scope "test"]])
 
 (task-options!
  pom {:project     project
