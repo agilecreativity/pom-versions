@@ -5,7 +5,8 @@
           :source-paths   #{"test"}
           :dependencies   '[[org.clojure/clojure "RELEASE"]
                             [org.clojure/data.xml "0.0.8"]
-                            [adzerk/boot-test "RELEASE" :scope "test"]])
+                            [adzerk/boot-test "RELEASE" :scope "test"]
+                            [adzerk/bootlaces "RELEASE" :scope "test"]])
 
 (task-options!
  pom {:project     project
@@ -21,4 +22,20 @@
   []
   (comp (pom) (jar) (install)))
 
-(require '[adzerk.boot-test :refer [test]])
+(require '[adzerk.boot-test :refer [test]]
+         '[adzerk.bootlaces :refer :all])
+
+(bootlaces! version)
+
+(deftask clj-dev
+  "Clojure REPL for CIDER"
+  []
+  (comp
+    (cider)
+    (repl :server true)
+    (wait)))
+
+(deftask cider-boot
+  "Cider boot params task"
+  []
+  (clj-dev))
