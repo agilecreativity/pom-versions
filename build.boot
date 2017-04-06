@@ -1,5 +1,5 @@
 (def project 'pom-versions)
-(def version "0.1.1")
+(def version "0.1.2")
 
 (set-env! :resource-paths #{"resources" "src"}
           :source-paths   #{"test"}
